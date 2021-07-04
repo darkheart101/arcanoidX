@@ -117,10 +117,10 @@ void level(char flvl[]){
 	
 		SDL_Flip(screen);
 	
-		while(quit==false && nxt==false ){
+		while(!quit && !nxt ){
 			nxt=nxtLevel(34);
 	
-			if(lost==true){
+			if(lost){
 				nxtLvl = 0;
 				offsetBALL.x = 275;
 				offsetBALL.y = 385;
@@ -199,7 +199,7 @@ void level(char flvl[]){
 			offsetSPR.x = offsetSPR.x -xVelSPR;
 		}
 		//Ball Movement and Collitions
-		if(start==true){
+		if(start){
 			xVelBALL = -1;
 			yVelBALL = -1;
 			start=false;
@@ -236,7 +236,7 @@ void level(char flvl[]){
 		}
 		dirc=collide(offsetBALL.x,offsetBALL.y,offsetBALL.w,offsetBALL.h,offsetSPR.x,offsetSPR.y,offsetSPR.w,offsetSPR.h);
 		for(x=0;x<34;x++){
-			if(brickVis[x] == true){
+			if(brickVis[x]){
 				if(dirc==0){
 					dirc=collide(offsetBALL.x,offsetBALL.y,offsetBALL.w,offsetBALL.h,offsetBRICK[x].x,offsetBRICK[x].y,offsetBRICK[x].w,offsetBRICK[x].h);
 					if(dirc!=0){

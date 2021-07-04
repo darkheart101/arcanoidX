@@ -106,7 +106,7 @@ int main(int argc,char *argv[]){
 	}
 
 	
-	while(fstSCR==true){
+	while(fstSCR){
 			while(SDL_PollEvent(&event)){
 				if(event.type==SDL_QUIT){
 					quit = true;
@@ -118,7 +118,7 @@ int main(int argc,char *argv[]){
 						case SDLK_F1: fstSCR = false; break;
 					}
 				}
-				if(arc_down == false){
+				if(!arc_down){
 					SDL_BlitSurface(bl,NULL,screen,&offsetBG);
 					for(offsetARC.y=0;offsetARC.y<160;offsetARC.y++){
 						SDL_BlitSurface(arc,NULL,screen,&offsetARC);
@@ -147,14 +147,14 @@ int main(int argc,char *argv[]){
 	}
 
 	//starting level 1
-	if(quit==false){
+	if(!quit){
 		levl = IMG_Load("./images/level1.png");
 		level("./levels/level1");
 		nxt = false;
 		nxtLvl = 0;
 	}
 	//starting level 2
-	if(quit==false){
+	if(!quit){
 		levl = IMG_Load("./images/level2.png");
 		level("./levels/level2");
 		nxt = false;
@@ -162,7 +162,7 @@ int main(int argc,char *argv[]){
 	}
 	
 	//starting level 3
-	if(quit==false){
+	if(!quit){
 		levl = IMG_Load("./images/level3.png");
 		level("./levels/level3");
 		if(lives!=0 && quit==false){
@@ -171,7 +171,7 @@ int main(int argc,char *argv[]){
 	}
 	
 	//Finishing the game
-	if(finish == true){
+	if(finish){
 		finished = IMG_Load("./images/finished.png");
 		SDL_BlitSurface(finished,NULL,screen,&offsetBG);
 		SDL_Flip(screen);

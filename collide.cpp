@@ -4,7 +4,7 @@
 
 int collide(int ax,int ay,int aw,int ah,int bx,int by,int bw,int bh){
 	//At first we have the collision when a is over b
-	//           *---*
+	//       *---*
 	//	     | a |
 	//	     *---*
 	//           *---*
